@@ -1,9 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
+
+<nav class="nav justify-content-center sticky-top navbar-light bg-faded">
+	<a class="nav-link" [routerLink]="links.inicio">Inicio</a>
+	<a class="nav-link" [routerLink]="links.colecciones">Colecciones</a>
+</nav>
 <div class="container">
-	<nav class="nav justify-content-center">
-		<a class="nav-link" [routerLink]="links.inicio">Inicio</a>
-		<a class="nav-link" [routerLink]="links.colecciones">Colecciones</a>
-	</nav>
 	<router-outlet></router-outlet>
 </div>
+<footer class="footer">
+	<div class="container">
+		AppAngularWeb
+	</div>
+</footer>
