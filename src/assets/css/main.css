@@ -7,12 +7,16 @@
 	font-family: 'Droid Sans', sans-serif;
 }
 
-.nav a{
+a, .nav a{
 	color: #212121;
 }
 
-.nav a:hover{
-	color: #F44336; 
+a:hover, .nav a:hover{
+	color: #F44336;
+}
+
+a:link{
+	text-decoration: none;
 }
 
 h3.title:before{
