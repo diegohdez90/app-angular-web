@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <ngx-slick *ngIf="coleccion.banner?.length>0" class="carousel" #slickModal="slick-modal" [config]="slickConfig">
+        <div ngxSlickItem *ngFor="let b of coleccion.banner" class="slide">
+          <img [src]="b.img" [style.width]="bannerWidth">
+        </div>
+      </ngx-slick>
+      <h2>{{coleccion.title}}</h2>
+      <div [innerHTML]="coleccion.description">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div *ngFor="let c of coleccionesNav">
+  			<h5><a [routerLink]="['/coleccion',c.id]" >{{ c.title }}</a></h5>
+  		</div>
+    </div>
+  </div>
+</div>
