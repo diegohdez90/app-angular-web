@@ -14,9 +14,13 @@ export class ColeccionesService {
 	{ "id" : 1,
 		"title" :"Platinum",
 		"banner" : [{
-			'img' : 'platinum-01.png'
+			'img' : 'PLATINUM-01.png'
 		},{
-			'img' : 'platinum-02.png'
+			'img' : 'PLATINUM-02.png'
+		},{
+			'img' : 'PLATINUM-03.png'
+		},{
+			'img' : 'PLATINUM-04.png'
 		}],
 		"description" : "<p>Deco Fantasy. Deja que tu imaginación vuele y decora con la magia del color y el diseño. Descubre nuevos conceptos que crean emoción. "+
 										"Awnings. Tejidos innovadores y tecnológicos que harán que disfrutes de tus espacios exteriores como nunca lo habías hecho.</p>"+
@@ -72,7 +76,9 @@ export class ColeccionesService {
 	getColeccion(id:number){
 		let i = id-1;
 		this.colecciones[i].banner = (!this.load) ? this.colecciones[i].banner.map(i => Object.assign({},i,{img : `${IMG_URL}${i.img}`})) : this.colecciones[i].banner;
-		this.load=true;
+		if(this.colecciones[i].banner.length>0){
+			this.load=true;
+		}
 		return this.colecciones[i];
 	}
 }

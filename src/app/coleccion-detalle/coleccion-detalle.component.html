@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <ngx-slick *ngIf="coleccion.banner?.length>0" class="carousel" #slickModal="slick-modal" [config]="slickConfig">
+      <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slickConfig">
         <div ngxSlickItem *ngFor="let b of coleccion.banner" class="slide">
           <img [src]="b.img" [style.width]="bannerWidth">
         </div>
