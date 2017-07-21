@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ColeccionesService } from '../colecciones.service';
+import { ColeccionesService } from '../shared/colecciones.service';
 
 @Component({
   selector: 'app-colecciones',

@@ -2,7 +2,7 @@
 	<div class="col-md-8 col-lg-8 col-lx-8">
 		<ngx-slick class="carousel" #slickModal="slick-modal" [config]="slickConfig">
 			<div ngxSlickItem *ngFor="let b of coleccion.banner" class="slide">
-				<img [src]="b" [style.width]="bannerWidth">
+				<img [src]="b.imagen" [style.width]="bannerWidth">
 			</div>
 		</ngx-slick>
 		<h3 class="text-center title">{{ coleccion.title }}</h3>
