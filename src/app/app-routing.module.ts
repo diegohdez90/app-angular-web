@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StartComponent } from '../start/start.component';
-import { ColeccionesComponent } from '../colecciones/colecciones.component';
-import { ColeccionDetalleComponent } from '../coleccion-detalle/coleccion-detalle.component'
+import { StartComponent } from './start/start.component';
+import { ColeccionesComponent } from './colecciones/colecciones.component';
+import { ColeccionDetalleComponent } from './coleccion-detalle/coleccion-detalle.component'
 
 const routes: Routes = [{
 		path: '', component: StartComponent
