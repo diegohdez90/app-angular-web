@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ColeccionesService } from '../colecciones.service';
+import { ColeccionesService } from '../shared/colecciones.service';
 
 @Component({
   selector: 'app-coleccion-detalle',
