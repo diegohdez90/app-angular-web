@@ -7,9 +7,9 @@ import { StartComponent } from './start/start.component';
 
 
 
-import { ColeccionesService } from './colecciones.service';
-import { GaleriaService } from './galeria.service';
-import { AppRoutingModule } from './app/app-routing.module';
+import { ColeccionesService } from './shared/colecciones.service';
+import { GaleriaService } from './shared/galeria.service';
+import { AppRoutingModule } from './app-routing.module';
 
 import { SlickModule } from 'ngx-slick';
 import { ColeccionDetalleComponent } from './coleccion-detalle/coleccion-detalle.component';
