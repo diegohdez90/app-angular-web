@@ -5,22 +5,27 @@ const IMG_URL = 'assets/img/';
 @Injectable()
 export class ColeccionesService {
 	load = false;
+	loadMain = false;
 	coleccion = {
 		"title" : "Colecciones",
-		"banner" : ["enrollable-wolken.png","madera-wolken.png"],
+		"banner" : [{"imagen" : "enrollable-wolken.png", "tmpImg" : ""},{"imagen" : "madera-wolken.png", "tmpImg": ""}],
 		"description" : "Bellos y atrevidos diseños que dan color y frescura a cualquier espacio. Personaliza cada ventana y dale alegría a tu hogar."
 	}
 	colecciones = [
 	{ "id" : 1,
 		"title" :"Platinum",
 		"banner" : [{
-			'img' : 'PLATINUM-01.png'
+			'img' : 'PLATINUM-01.png',
+			'tmpImg': ''
 		},{
-			'img' : 'PLATINUM-02.png'
+			'img' : 'PLATINUM-02.png',
+			'tmpImg': ''
 		},{
-			'img' : 'PLATINUM-03.png'
+			'img' : 'PLATINUM-03.png',
+			'tmpImg': ''
 		},{
-			'img' : 'PLATINUM-04.png'
+			'img' : 'PLATINUM-04.png',
+			'tmpImg': ''
 		}],
 		"description" : "<p>Deco Fantasy. Deja que tu imaginación vuele y decora con la magia del color y el diseño. Descubre nuevos conceptos que crean emoción. "+
 										"Awnings. Tejidos innovadores y tecnológicos que harán que disfrutes de tus espacios exteriores como nunca lo habías hecho.</p>"+
@@ -60,12 +65,15 @@ export class ColeccionesService {
   constructor() { }
 
   concatURL_IMG(file:string){
-  	this.load = true;
   	return `${IMG_URL}${file}`;
   }
 
   loadColeccion(){
-  	this.coleccion.banner = (!this.load) ? this.coleccion.banner.map( (b) => {return this.concatURL_IMG(b); } ) : this.coleccion.banner;
+		if(this.loadMain) this.coleccion.banner = this.coleccion.banner.map( (i) => Object.assign({},i,{image : `${i.tmpImg}`}) )
+  	if(!this.loadMain){
+			this.coleccion.banner =  this.coleccion.banner.map( (b) => Object.assign({},b,{tmpImg : `${b.imagen}`, imagen : `${IMG_URL}${b.imagen}`}) );
+			this.loadMain=true;
+		}
   	return this.coleccion;
   }
 
@@ -75,9 +83,10 @@ export class ColeccionesService {
 
 	getColeccion(id:number){
 		let i = id-1;
-		this.colecciones[i].banner = (!this.load) ? this.colecciones[i].banner.map(i => Object.assign({},i,{img : `${IMG_URL}${i.img}`})) : this.colecciones[i].banner;
+		if(this.load) this.colecciones[i].banner = this.colecciones[i].banner.map(i => Object.assign({},i,{img : `${i.tmpImg}` }));
 		if(this.colecciones[i].banner.length>0){
-			this.load=true;
+			this.colecciones[i].banner = this.colecciones[i].banner.map(i => Object.assign({},i,{tmpImg : `${i.img}`,  img : `${IMG_URL}${i.img}` }));
+			this.load=true
 		}
 		return this.colecciones[i];
 	}
