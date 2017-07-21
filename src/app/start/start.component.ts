@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ColeccionesService } from '../colecciones.service';
-import { GaleriaService } from '../galeria.service';
+import { ColeccionesService } from '../shared/colecciones.service';
+import { GaleriaService } from '../shared/galeria.service';
 
 @Component({
   selector: 'app-start',
