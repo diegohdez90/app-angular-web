@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SlickModule } from 'ngx-slick';
 import { ColeccionDetalleComponent } from './coleccion-detalle/coleccion-detalle.component';
 
+import { HttpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { ColeccionDetalleComponent } from './coleccion-detalle/coleccion-detalle
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     SlickModule.forRoot()
   ],
