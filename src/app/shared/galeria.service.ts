@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 
+import { Http, Headers } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+
+
+const SERVER_URL = "http://localhost:3000/gallery";
 
 const IMG_URL = 'assets/img/';
 
 @Injectable()
 export class GaleriaService {
 	load = false;
-	galeria = [
-	"image-gallery-01.png",
-	"image-gallery-02.png",
-	"image-gallery-03.png",
-	"image-gallery-04.png",
-	"image-gallery-05.png",
-	"image-gallery-06.png",
-	"image-gallery-07.png",
-	];
-  constructor() { }
+
+  constructor(private http : Http) { }
 
   concatURL_IMG(file:string){
   	this.load = true;
@@ -23,7 +22,7 @@ export class GaleriaService {
   }
 
   loadGaleria(){
-	  this.galeria = (!this.load) ? this.galeria.map((g) => { return this.concatURL_IMG(g) } ) : this.galeria;
-	  return this.galeria;
+  	return this.http.get(SERVER_URL)
+  				.map( res => { res.json()} );
   }
 }
