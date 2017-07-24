@@ -9,12 +9,16 @@ import { GaleriaService } from '../shared/galeria.service';
 })
 export class StartComponent implements OnInit {
 	colecciones = [];
-	galeria = [];
+	galeria;
   constructor(private coleccionesService : ColeccionesService, private galeriaService : GaleriaService) { }
 
   ngOnInit() {
   	this.colecciones = this.coleccionesService.loadColecciones();
-  	this.galeria = this.galeriaService.loadGaleria();
+  	this.galeriaService.loadGaleria()
+        .subscribe(galeria => {
+          console.log(galeria);
+          this.galeria = galeria;
+        })
   }
 
 }
