@@ -8,13 +8,13 @@ import { GaleriaService } from '../shared/galeria.service';
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-	colecciones = [];
-	galeria = [];
-  constructor(private coleccionesService : ColeccionesService, private galeriaService : GaleriaService) { }
+  colecciones = [];
+  galeria = [];
+  constructor(private coleccionesService: ColeccionesService, private galeriaService: GaleriaService) { }
 
   ngOnInit() {
-  	this.colecciones = this.coleccionesService.loadColecciones();
-  	this.galeria = this.galeriaService.loadGaleria();
+    this.colecciones = this.coleccionesService.loadColecciones();
+    this.galeria = this.galeriaService.loadGaleria();
   }
 
 }
